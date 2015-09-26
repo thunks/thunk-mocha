@@ -6,21 +6,20 @@
 /* global describe, it, before, after, beforeEach */
 
 var assert = require('assert')
+// var mocha = require('mocha')
 var thunk = require('thunks')()
-var thunkMocha = require('../index')
-
-thunkMocha(require('mocha'))
 
 describe('thunk-mocha', function () {
   var result = []
 
+  // support generator
   before(function *() {
     yield thunk.delay(100)
     result.push('before')
   })
 
-  after(function *() {
-    yield thunk.delay(100)
+  // support simple sync test
+  after(function () {
     assert.deepEqual(result, [
       'before',
       'beforeEach',

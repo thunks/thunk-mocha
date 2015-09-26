@@ -1,13 +1,13 @@
 {
   "name": "thunk-mocha",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Enable support for generators in Mocha with backward compatibility.",
   "main": "index.js",
   "authors": [
     "Yan Qing <admin@zensh.com>"
   ],
   "scripts": {
-    "test": "standard && mocha"
+    "test": "standard && mocha -r ./index"
   },
   "repository": {
     "type": "git",

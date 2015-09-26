@@ -13,13 +13,25 @@ It is similar to [Co Mocha](https://github.com/blakeembrey/co-mocha), but it is 
 npm install thunk-mocha
 ```
 
-## Example
+## Usage
+
+**Call by mocha in CLI:**
+
+```sh
+mocha -r thunk-mocha
+```
+
+**Call in js file:**
 
 ```js
-var mocha = require('mocha')
-var thunkMocha = require('thunk-mocha')
-thunkMocha(mocha)
+require('thunk-mocha')()
+```
 
+## Example
+
+**After patched, mocha support:**
+
+```js
 describe('thunk-mocha', function () {
   // support generator
   beforeEach(function *() {
@@ -55,13 +67,6 @@ describe('thunk-mocha', function () {
   })
 })
 ```
-
-## API
-
-```js
-var thunkMocha = require('thunk-mocha')
-```
-### thunkMocha(require('mocha'))
 
 [npm-url]: https://npmjs.org/package/thunk-mocha
 [npm-image]: http://img.shields.io/npm/v/thunk-mocha.svg
