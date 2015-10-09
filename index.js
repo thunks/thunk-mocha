@@ -19,14 +19,15 @@ function thunkMocha (mocha) {
   runnableProto._originFn = void 0
 
   Object.defineProperty(runnableProto, 'fn', {
-    get: function () {
-      var _originFn = this._originFn
-      if (!_originFn) return _originFn
-      return function (done) {
-        thunk.call(this, _originFn.length ? _originFn : _originFn.call(this))(done)
+    get: function () { return this._fn },
+    set: function (fn) {
+      if (typeof fn !== 'function') this._fn = fn
+      else {
+        this._fn = function (done) {
+          thunk.call(this, fn.length ? fn : fn.call(this))(done)
+        }
       }
     },
-    set: function (fn) { this._originFn = fn },
     enumerable: true,
     configurable: false
   })
