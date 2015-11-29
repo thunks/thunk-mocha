@@ -24,47 +24,47 @@ mocha -r thunk-mocha
 **Call in js file:**
 
 ```js
+// make sure that `mocha` have loaded
 require('thunk-mocha')()
+// or
+// require('thunk-mocha')(require('mocha'))
 ```
+
 
 ## Example
 
 **After patched, mocha support:**
-
 ```js
-describe('thunk-mocha', function () {
-  // support generator
-  beforeEach(function *() {
-    // do some thing
-  })
+// backward compatibility for old callback style!
+it('test1', function (done) {
+  // do some test
+  done()
+})
 
-  // backward compatibility for old style!
-  it('test1', function (done) {
-    // do some test
-    done()
-  })
+// backward compatibility for simple sync test!
+it('test2', function () {
+  // do some test
+})
 
-  // support generator
-  it('test2', function *() {
-    // do some test
-  })
+// support generator
+it('test3', function *() {
+  // do some test
+  // yield promise
+  // yield thunk
+  // yield generator
+  // ...
+})
 
-  // support promise
-  it('test3', function () {
-    // do some test
-    return promise
-  })
+// support promise
+it('test4', function () {
+  // do some test
+  return promiseLikeObject
+})
 
-  // another way with thunk function
-  it('test4', function () {
-    // do some test
-    return thunkFn
-  })
-
-  // or simple sync test!
-  it('test5', function () {
-    // do some test
-  })
+// another way with thunk function
+it('test5', function () {
+  // do some test
+  return thunkFunction
 })
 ```
 

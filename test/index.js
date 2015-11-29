@@ -6,7 +6,6 @@
 /* global describe, it, before, after, beforeEach */
 
 var assert = require('assert')
-// var mocha = require('mocha')
 var thunk = require('thunks')()
 
 describe('thunk-mocha', function () {
