@@ -51,11 +51,15 @@ function findMocha () {
   var mochaId = path.sep + path.join('', 'mocha', 'index.js')
   var modules = require.cache || {}
 
-  return Object.keys(modules)
+  var items = Object.keys(modules)
     .filter(function (name) {
       return name.slice(mochaId.length * -1) === mochaId
     })
     .map(function (name) {
       return modules[name].exports
     })
+
+  if (items.length === 0) items.push(require('mocha'))
+
+  return items
 }
