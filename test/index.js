@@ -12,7 +12,7 @@ describe('thunk-mocha', function () {
   var result = []
 
   // support generator
-  before(function *() {
+  before(function * () {
     yield thunk.delay(100)
     result.push('before')
   })
@@ -32,7 +32,7 @@ describe('thunk-mocha', function () {
     ])
   })
 
-  beforeEach(function *() {
+  beforeEach(function * () {
     yield thunk.delay(100)
     result.push('beforeEach')
   })
@@ -48,7 +48,7 @@ describe('thunk-mocha', function () {
     }, 100)
   })
 
-  it('generator', function *() {
+  it('generator', function * () {
     yield thunk.delay(100)
     result.push('generator')
   })

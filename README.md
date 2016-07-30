@@ -4,6 +4,7 @@ Enable support for generators in Mocha with backward compatibility.
 
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Downloads][downloads-image]][downloads-url]
 
 It is similar to [Co Mocha](https://github.com/blakeembrey/co-mocha), but it is a different implementation and more powerful. It is a perfect patch for mocha!
 
@@ -73,3 +74,6 @@ it('test5', function () {
 
 [travis-url]: https://travis-ci.org/thunks/thunk-mocha
 [travis-image]: http://img.shields.io/travis/thunks/thunk-mocha.svg
+
+[downloads-url]: https://npmjs.org/package/thunk-mocha
+[downloads-image]: http://img.shields.io/npm/dm/thunk-mocha.svg?style=flat-square
