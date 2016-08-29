@@ -1,6 +1,6 @@
 {
   "name": "thunk-mocha",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Enable support for generators in Mocha with backward compatibility.",
   "main": "index.js",
   "authors": [
@@ -22,14 +22,14 @@
     "node": ">= 1"
   },
   "dependencies": {
-    "thunks": "^4.3.0"
+    "thunks": "^4.5.1"
   },
   "devDependencies": {
-    "mocha": "^2.5.3",
-    "standard": "^7.1.2"
+    "mocha": "^3.0.2",
+    "standard": "^8.0.0"
   },
   "peerDependencies": {
-    "mocha": ">=2 || >=3.0.0-0"
+    "mocha": ">=2 || >=3.0"
   },
   "license": "MIT",
   "bugs": {

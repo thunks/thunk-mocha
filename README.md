@@ -27,8 +27,7 @@ mocha -r thunk-mocha
 ```js
 // make sure that `mocha` have loaded
 require('thunk-mocha')()
-// or
-// require('thunk-mocha')(require('mocha'))
+// or: require('thunk-mocha')(require('mocha'))
 ```
 
 
@@ -36,36 +35,36 @@ require('thunk-mocha')()
 
 **After patched, mocha support:**
 ```js
-// backward compatibility for old callback style!
-it('test1', function (done) {
+it('support sync test', function () {
+  // do some test
+})
+
+it('support thunk style async test', function (done) {
   // do some test
   done()
 })
 
-// backward compatibility for simple sync test!
-it('test2', function () {
+it('support promise style async test', function () {
   // do some test
+  return promiseLikeObject
 })
 
-// support generator
-it('test3', function *() {
+it('support generator style async test', function * () {
   // do some test
-  // yield promise
+  yield promise
   // yield thunk
   // yield generator
   // ...
 })
 
-// support promise
-it('test4', function () {
+it('support async/await style async test', async function () {
   // do some test
-  return promiseLikeObject
+  await promise
 })
 
-// another way with thunk function
-it('test5', function () {
+it('support Rx.Observable style async test', function () {
   // do some test
-  return thunkFunction
+  return Rx.Observable.bindNodeCallback(fs.stat)('package.json')
 })
 ```
 

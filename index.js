@@ -3,8 +3,8 @@
 //
 // **License:** MIT
 
-var path = require('path')
-var thunk = require('thunks')()
+const path = require('path')
+const thunk = require('thunks')()
 
 module.exports = thunkMocha
 
@@ -15,7 +15,7 @@ function thunkMocha (mocha) {
   if (!mocha || mocha.Runnable.thunkMochaPatched) return
   mocha.Runnable.thunkMochaPatched = true
 
-  var runnableProto = mocha.Runnable.prototype
+  let runnableProto = mocha.Runnable.prototype
   runnableProto._originFn = void 0
 
   Object.defineProperty(runnableProto, 'fn', {
@@ -48,10 +48,10 @@ function thunkMocha (mocha) {
 function findMocha () {
   if (typeof window === 'object' && window.Mocha) return [window.Mocha]
 
-  var mochaId = path.sep + path.join('', 'mocha', 'index.js')
-  var modules = require.cache || {}
+  let mochaId = path.sep + path.join('', 'mocha', 'index.js')
+  let modules = require.cache || {}
 
-  var items = Object.keys(modules)
+  let items = Object.keys(modules)
     .filter(function (name) {
       return name.slice(mochaId.length * -1) === mochaId
     })
@@ -60,6 +60,5 @@ function findMocha () {
     })
 
   if (items.length === 0) items.push(require('mocha'))
-
   return items
 }
