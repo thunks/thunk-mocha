@@ -3,7 +3,6 @@
 //
 // **License:** MIT
 
-const path = require('path')
 const thunk = require('thunks')()
 
 module.exports = thunkMocha
@@ -48,12 +47,13 @@ function thunkMocha (mocha) {
 function findMocha () {
   if (typeof window === 'object' && window.Mocha) return [window.Mocha]
 
-  let mochaId = path.sep + path.join('', 'mocha', 'index.js')
   let modules = require.cache || {}
 
   let items = Object.keys(modules)
     .filter(function (name) {
-      return name.slice(mochaId.length * -1) === mochaId
+      // - end of .3.0.2@mocha/index.js for npminstall
+      // - end of /mocha/index.js for npm
+      return /[\/\\@]mocha[\/\\]index.js$/.test(name)
     })
     .map(function (name) {
       return modules[name].exports
