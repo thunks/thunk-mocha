@@ -33,12 +33,14 @@ function thunkMocha (mocha) {
 
   Object.defineProperty(runnableProto, 'async', {
     get: function () { return true },
+    set: function () {},
     enumerable: true,
     configurable: false
   })
 
   Object.defineProperty(runnableProto, 'sync', {
     get: function () { return false },
+    set: function () {},
     enumerable: true,
     configurable: false
   })
